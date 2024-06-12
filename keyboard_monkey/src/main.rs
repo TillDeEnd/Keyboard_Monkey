@@ -54,9 +54,42 @@ fn main() {
     println!("Press Enter to continue...");
     input();
 
+    println!("");
+    println!("Please enter a word to search for:");
+    println!("");
+    input();
+    println!("");
+    let word_search: &str = "cat";
+
+    print!("Ok, We are looking for {word_search}");
+    println!("");
+
+    let mut whatever: String = String::new();
+    for _chars in word_search.chars() {
+        whatever.push(' ');
+    }
+
+    println!("");
+    println!("Press Enter to begin...");
+    println!("");
+    input();
+
     loop {
         let monkey_spam: char = generate_random_char();
         print!("{monkey_spam}");
+        whatever.push(monkey_spam);
+        whatever.remove(0);
+
+        if whatever.contains(word_search) {
+            println!("");
+            println!("");
+            println!("Done.");
+            println!("");
+            println!("Press Enter to end...");
+            println!("");
+            input();
+            break;
+        }
     }
 
 }
